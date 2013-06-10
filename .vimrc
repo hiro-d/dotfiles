@@ -2,16 +2,23 @@
 " NeoBundle settings
 "------------------------------------
 "
-filetype plugin on
-set rtp+=~/.vim/vundle/
-call vundle#rc('~/.vim/bundle')
+set nocompatible
+filetype off
+set rtp+=~/dotfiles/neobundle.vim
 
-Bundle 'petdance/vim-perl'
-Bundle 'hotchpotch/perldoc-vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'thinca/vim-quickrun'
+if has ('vim_starting')
+  set runtimepath+=~/dotfiles/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
 
+NeoBundle 'hotchpotch/perldoc-vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'h1mesuke/vim-alignta'
+
+filetype plugin indent on
 
 "------------------------------------
 " neocomplcache
@@ -32,7 +39,8 @@ let g:neocomplcache_ctags_arguments_list = {
   \ 'perl' : '-R -h ".pm"'
   \ }
 
-let g:neocomplcache_snippets_directory = "~/.vim/snippets"
+"let g:neocomplcache_snippets_directory = "~/.vim/snippets"
+let g:neocomplcache_snippets_dir = "~/.vim/snippets"
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
   \ 'default'    : '',
@@ -45,8 +53,6 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" for snippets
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-n>"
 
 "------------------------------------
 " neosnippet
