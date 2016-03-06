@@ -17,6 +17,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'mrk21/yaml-vim'
 
 filetype plugin indent on
 
@@ -95,8 +96,6 @@ set showmatch
 set backspace=2		
 "<Tab>の空白数
 set tabstop=4       
-"ソフトタブ
-set expandtab       
 "インデント幅
 set shiftwidth=4	
 
@@ -124,6 +123,10 @@ set cursorcolumn
 set showcmd     " 入力中コマンド表示
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 autocmd BufNewFile,BufRead *.t    set filetype=perl
+
+" html用設定
+au BufRead,BufNewFile,BufReadPre *.html   set filetype=html
+autocmd FileType html    setlocal sw=2 sts=2 ts=2 et
 
 "" search setting
 set incsearch		
@@ -158,6 +161,6 @@ inoremap <C-p> %
 
 "" encoding
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,euc-jp,Shift_JIS
+set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,Shift_JIS
 
 
