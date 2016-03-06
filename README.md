@@ -2,6 +2,6 @@ dotfiles
 ========
 dotfiles
 
-1. neobundle.vim$B$,6u$K$J$C$F$$$k$N$G>C$9(B
-2. neobundle.vim$B$r(Bgit clone
-3. vim$B$r3+$$$F!"(B:NeoBundleInstall
+1. neobundle.vimが空になっているので消す
+2. neobundle.vimをgit clone
+3. vimを開いて、:NeoBundleInstall
